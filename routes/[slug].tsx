@@ -1,7 +1,7 @@
-import { Handlers } from "$fresh/server.ts";
-import { getPost, Post } from "./index.tsx";
-import { PageProps } from "$fresh/server.ts";
+import { Handlers, PageProps } from "$fresh/server.ts";
 import { CSS, KATEX_CSS, render } from "$gfm";
+
+import { getPost, Post } from "./index.tsx";
 
 import "https://esm.sh/prismjs@1.29.0/components/prism-python?no-check";
 import Header from "../islands/Header.tsx";
@@ -26,20 +26,23 @@ export default function PostPage(props: PageProps<Post>) {
           `;
   return (
     <>
-      <head>
-        <meta charset="UTF-8"></meta>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-        <style dangerouslySetInnerHTML={{ __html: style}}>
-        </style>
-      </head>
-      <body>
-      <Header title="" active="/" />
+        <head>
+            <meta charset="UTF-8"></meta>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+            <style dangerouslySetInnerHTML={{__html: style}}>
+            </style>
+        </head>
+        <body>
+        <div className="bg-tiago-bg flex flex-col">
+        <Header title="" active="/"/>
+        </div>
+
         <main data-color-mode="light" data-light-theme="light" data-dark-theme="dark" class="mt-8 mb-8 markdown-body"
-          dangerouslySetInnerHTML={{ __html: render(post.content, {allowMath: true}) }}
+              dangerouslySetInnerHTML={{__html: render(post.content, {allowMath: true})}}
         >
         </main>
-      <Footer />
-      </body>
+            <Footer/>
+        </body>
     </>
-  );
+);
 }

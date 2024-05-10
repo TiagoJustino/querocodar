@@ -2,7 +2,7 @@ import BrandGithub from 'https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/brand-gi
 import BrandLinkedin from 'https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/brand-linkedin.tsx'
 import BrandFacebook from 'https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/brand-facebook.tsx'
 import BrandInstagram from 'https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/brand-instagram.tsx'
-import {Button} from "./Button.tsx";
+import BrandYoutube from 'https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/brand-youtube.tsx'
 
 interface Item {
   name: string;
@@ -79,6 +79,14 @@ export default function NavigationBar(props: NavigationBarProps) {
                 className="hover:text-tiago-gray text-tiago-white inline-block"
             >
               <BrandInstagram/>
+            </a>
+          </li>
+          <li className="flex items-center">
+            <a
+                href="https://www.youtube.com/@TiagoJustinoVM"
+                className="hover:text-tiago-gray text-tiago-white inline-block"
+            >
+              <BrandYoutube/>
             </a>
           </li>
         </ul>

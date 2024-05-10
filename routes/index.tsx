@@ -1,7 +1,7 @@
-import { Handlers } from "$fresh/server.ts"
+import { Handlers, PageProps }  from "$fresh/server.ts"
 import { extract } from "https://deno.land/std@0.145.0/encoding/front_matter.ts";
 import { join } from "$std/path/mod.ts";
-import { PageProps } from "$fresh/server.ts";
+
 import Header from "../islands/Header.tsx";
 import Footer from "../components/Footer.tsx";
 

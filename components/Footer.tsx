@@ -13,6 +13,7 @@ export default function Footer({ children }: Props) {
         { name: 'GitHub', href: 'https://github.com/tiagojustino' },
         { name: 'Facebook', href: 'http://www.facebook.com/tiagovmjustino' },
         { name: 'Instagram', href: 'https://www.instagram.com/tiagovmjustino' },
+        { name: 'YouTube', href: 'https://www.youtube.com/@TiagoJustinoVM' },
       ],
     },
       /*
