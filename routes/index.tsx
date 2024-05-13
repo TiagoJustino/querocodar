@@ -50,7 +50,7 @@ export default function BlogIndexPage(props: PageProps<Post[]>) {
   return (
       <div className="flex flex-col min-h-screen selection::bg-tiago-bg selection::text-tiago-white">
         <div className="bg-tiago-bg flex flex-col">
-          <Header title="" active="/"/>
+          <Header title="QueroCodar" active="/"/>
         </div>
         <div className="flex-1">
           <main className="max-w-screen-md px-4 pt-16 mx-auto">

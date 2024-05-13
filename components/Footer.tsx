@@ -1,5 +1,5 @@
 import { ComponentChildren } from 'preact'
-import BrandGithub from 'https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/brand-github.tsx'
+import BrandGithub from '$tablericons/brand-github.tsx'
 type Props = {
   children?: ComponentChildren
 }
@@ -9,6 +9,7 @@ export default function Footer({ children }: Props) {
     {
       title: 'Find me online',
       children: [
+        { name: 'justino.com.br', href: 'http://justino.com.br' },
         { name: 'LinkedIn', href: 'http://www.linkedin.com/in/tiago-justino' },
         { name: 'GitHub', href: 'https://github.com/tiagojustino' },
         { name: 'Facebook', href: 'http://www.facebook.com/tiagovmjustino' },

@@ -3,7 +3,7 @@ import { CSS, KATEX_CSS, render } from "$gfm";
 
 import { getPost, Post } from "./index.tsx";
 
-import "https://esm.sh/prismjs@1.29.0/components/prism-python?no-check";
+import "prismjs/components/prism-python?no-check";
 import Header from "../islands/Header.tsx";
 import Footer from "../components/Footer.tsx";
 
@@ -34,7 +34,7 @@ export default function PostPage(props: PageProps<Post>) {
         </head>
         <body>
         <div className="bg-tiago-bg flex flex-col">
-        <Header title="" active="/"/>
+        <Header title="QueroCodar" active="/blog"/>
         </div>
 
         <main data-color-mode="light" data-light-theme="light" data-dark-theme="dark" class="mt-8 mb-8 markdown-body"

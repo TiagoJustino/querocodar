@@ -1,8 +1,10 @@
-import BrandGithub from 'https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/brand-github.tsx'
-import BrandLinkedin from 'https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/brand-linkedin.tsx'
-import BrandFacebook from 'https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/brand-facebook.tsx'
-import BrandInstagram from 'https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/brand-instagram.tsx'
-import BrandYoutube from 'https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/brand-youtube.tsx'
+import BrandGithub from '$tablericons/brand-github.tsx'
+import BrandLinkedin from '$tablericons/brand-linkedin.tsx'
+import BrandFacebook from '$tablericons/brand-facebook.tsx'
+import BrandInstagram from '$tablericons/brand-instagram.tsx'
+import BrandYoutube from '$tablericons/brand-youtube.tsx'
+import { Button } from "./Button.tsx";
+import { IS_BROWSER } from "$fresh/runtime.ts";
 
 interface Item {
   name: string;
@@ -19,20 +21,20 @@ interface NavigationBarProps {
 }
 
 export default function NavigationBar(props: NavigationBarProps) {
-  /*
   const items = [
+  /*
     {
       name: 'Showcase',
       href: '/showcase',
     },
+   */
     {
-      name: 'Blog',
-      href: '/blog/introduction',
+      name: 'justino.com.br',
+      href: 'https://justino.com.br',
     },
   ]
-   */
-  const items: Item[] = [];
   const propClass = props.class ?? '';
+  const pathname = IS_BROWSER ? window.location.pathname : null;
   return (
       <nav class={'flex ' + propClass}>
         <ul class="flex justify-center items-center gap-4 mx-4 my-6 flex-wrap">
@@ -89,6 +91,38 @@ export default function NavigationBar(props: NavigationBarProps) {
               <BrandYoutube/>
             </a>
           </li>
+         <div className="max-w-screen-md mx-auto my-2 px(4 sm:6 md:8) space-y-12">
+          <div className="md:flex items-center justify-end">
+            <div className="flex text-center md:text-left justify-end">
+              <Button disabled={props.state.lang == 'br'} onClick={() => {
+                if(pathname && props.state.lang == 'en') {
+                  console.log("br");
+                  props.setState({lang: 'br'})
+                  window.location.assign(`https://querocodar.com.br${pathname}`);
+                }
+              }}>
+                <img
+                    src="/br.png"
+                    className="w-10 mx-1 my-1"
+                    width={80}
+                />
+              </Button>
+              <Button disabled={props.state.lang == 'en'} onClick={() => {
+                if(pathname && props.state.lang == 'br') {
+                  console.log("en");
+                  props.setState({lang: 'en'})
+                  window.location.assign(`https://iwannacode.com${pathname}`);
+                }
+              }}>
+                <img
+                    src="/en.png"
+                    className="w-10 mx-1 my-1"
+                    width={80}
+                />
+              </Button>
+            </div>
+          </div>
+        </div>
         </ul>
       </nav>
   )
