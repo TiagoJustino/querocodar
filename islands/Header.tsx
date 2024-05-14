@@ -13,7 +13,7 @@ export default function Header(props: HeaderProps) {
   return (
     <div>
       <header class="mx-auto max-w-screen-lg flex gap-3 justify-between">
-          <div class="p-4 flex items-center">
+          <div class="flex items-center">
             <Logo disabled={isHome} />
             <BlogTitle title={props.title} disabled={isHome} />
           </div>

@@ -37,7 +37,7 @@ export default function NavigationBar(props: NavigationBarProps) {
   const pathname = IS_BROWSER ? window.location.pathname : null;
   return (
       <nav class={'flex ' + propClass}>
-        <ul class="flex justify-center items-center gap-4 mx-4 my-6 flex-wrap">
+        <ul class="flex justify-center items-center gap-4 mx-4 my-1 flex-wrap">
           {items.map((item) => (
               <li>
                 <a
