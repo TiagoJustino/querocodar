@@ -1,7 +1,5 @@
 {
   "lspconfig": {
-    "tsserver": false,
-    "eslint": false,
-    "denols": true
+    "tsserver": false
   }
 }

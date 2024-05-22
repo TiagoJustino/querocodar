@@ -9,6 +9,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    environment: Production
 
     permissions:
       id-token: write # Needed for auth with Deno Deploy
@@ -24,6 +25,10 @@ jobs:
           deno-version: v1.x
 
       - name: Build step
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          KV_OAUTH_REDIRECT_BASE_URL: ${{ secrets.KV_OAUTH_REDIRECT_BASE_URL }}
         run: "deno task build"
 
       - name: Upload to Deno Deploy

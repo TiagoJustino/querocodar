@@ -3,9 +3,9 @@ import type { Plugin } from "$fresh/server.ts";
 
 const { signIn, handleCallback, signOut, getSessionId } = createHelpers(
   createGoogleOAuthConfig({
-    redirectUri: "http://localhost:8000/callback",
-    scope: "https://www.googleapis.com/auth/userinfo.profile"
-  })
+    redirectUri: `${Deno.env.get("KV_OAUTH_REDIRECT_BASE_URL")}/callback`,
+    scope: "https://www.googleapis.com/auth/userinfo.profile",
+  }),
 );
 
 const kVOauthPlugin: Plugin = {
@@ -42,4 +42,5 @@ const kVOauthPlugin: Plugin = {
   ],
 } as Plugin;
 
-export { kVOauthPlugin }
+export { kVOauthPlugin };
+
