@@ -71,11 +71,11 @@ O código em python fica da seguinte forma:
 ```python
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        map: Dict[int, bool] = {}
+        dic: Dict[int, bool] = {}
         for num in nums:
-            if num in map:
+            if num in dic:
                 return True
-            map[num] = True
+            dic[num] = True
         return False
 ```
 
