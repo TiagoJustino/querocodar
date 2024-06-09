@@ -1,4 +1,4 @@
-import { Handlers, PageProps }  from "$fresh/server.ts"
+import { Handlers, PageProps } from "$fresh/server.ts";
 import { extract } from "https://deno.land/std@0.145.0/encoding/front_matter.ts";
 import { join } from "$std/path/mod.ts";
 
@@ -22,8 +22,10 @@ export const handler: Handlers<Post[]> = {
 
 export async function getPost(slug: string): Promise<Post | null> {
   const text = await Deno.readTextFile(join("./posts", `${slug}.md`));
-  const { attrs, body } : { attrs: { title: string; published_at: string; snippet: string }; body: string; } =
-      extract(text);
+  const { attrs, body }: {
+    attrs: { title: string; published_at: string; snippet: string };
+    body: string;
+  } = extract(text);
   return {
     slug,
     title: attrs.title,
@@ -48,32 +50,37 @@ export async function getPosts(): Promise<Post[]> {
 export default function BlogIndexPage(props: PageProps<Post[]>) {
   const posts = props.data;
   return (
-      <div className="flex flex-col min-h-screen selection::bg-tiago-bg selection::text-tiago-white">
-        <div className="bg-tiago-bg flex flex-col">
-          <Header title="QueroCodar" active="/"/>
-        </div>
-        <div className="flex-1">
-          <main className="max-w-screen-md px-4 pt-16 mx-auto">
-            <h1 className="text-5xl font-bold">Blog</h1>
-            <div className="mt-8">
-              {posts.map((post) => <PostCard post={post}/>)}
-            </div>
-          </main>
-        </div>
-        <Footer/>
-      </div> );
+    <div className="flex flex-col min-h-screen selection::bg-tiago-bg selection::text-tiago-white">
+      <div className="bg-tiago-bg flex flex-col">
+        <Header title="QueroCodar" active="/" />
+      </div>
+      <div className="flex-1">
+        <main className="max-w-screen-md px-4 pt-16 mx-auto">
+          <h1 className="text-5xl font-bold">Blog</h1>
+          <div className="mt-8">
+            {posts.map((post) => <PostCard post={post} />)}
+          </div>
+        </main>
+      </div>
+      <Footer />
+    </div>
+  );
 }
 
 function PostCard(props: { post: Post }) {
-  const {post} = props;
+  const { post } = props;
   return (
-      <div class="py-8 border(t gray-200)">
-        <a class="sm:col-span-2" href={`/${post.slug}`}>
+    <div class="py-8 border(t gray-200)">
+      <a class="sm:col-span-2" href={`/${post.slug}`}>
         <h3 class="text(3xl gray-900) font-bold">
           {post.title}
         </h3>
         <time class="text-gray-500">
-          {new Date(post.publishedAt).toLocaleDateString("en-us", { year: "numeric", month: "long", day: "numeric", })}
+          {new Date(post.publishedAt).toLocaleDateString("en-us", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
         </time>
         <div class="mt-4 text-gray-900">
           {post.snippet}

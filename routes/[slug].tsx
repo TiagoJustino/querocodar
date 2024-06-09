@@ -26,23 +26,30 @@ export default function PostPage(props: PageProps<Post>) {
           `;
   return (
     <>
-        <head>
-            <meta charset="UTF-8"></meta>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-            <style dangerouslySetInnerHTML={{__html: style}}>
-            </style>
-        </head>
-        <body>
+      <head>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </meta>
+        <style dangerouslySetInnerHTML={{ __html: style }}>
+        </style>
+      </head>
+      <body>
         <div className="bg-tiago-bg flex flex-col">
-        <Header title="QueroCodar" active="/blog"/>
+          <Header title="QueroCodar" active="/blog" />
         </div>
 
-        <main data-color-mode="light" data-light-theme="light" data-dark-theme="dark" class="mt-8 mb-8 markdown-body"
-              dangerouslySetInnerHTML={{__html: render(post.content, {allowMath: true})}}
+        <main
+          data-color-mode="light"
+          data-light-theme="light"
+          data-dark-theme="dark"
+          class="mt-8 mb-8 markdown-body"
+          dangerouslySetInnerHTML={{
+            __html: render(post.content, { allowMath: true }),
+          }}
         >
         </main>
-            <Footer/>
-        </body>
+        <Footer />
+      </body>
     </>
-);
+  );
 }

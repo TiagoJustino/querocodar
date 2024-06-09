@@ -6,6 +6,17 @@ snippet: Array, Hash Table, Sorting
 
 # [LeetCode 217. Contains Duplicate](https://leetcode.com/problems/contains-duplicate/description/)
 
+<p>
+  <a
+    href="https://www.youtube.com/watch?v=a87ZStuGVks"
+    rel="noopener noreferrer">
+      <img
+        src="https://img.youtube.com/vi/a87ZStuGVks/0.jpg"
+        width="95%"
+        alt="Link para o vídeo do YouTube">
+  </a>
+</p>
+
 > Given an integer array `nums`, return `true` if any value appears **at least twice** in the array, and return `false` if every element is distinct.
 >
 > Example 1:
