@@ -1,4 +1,3 @@
-
 ---
 title: LeetCode 242. Valid Anagram
 published_at: 2024-06-24T19:45:39.000Z
